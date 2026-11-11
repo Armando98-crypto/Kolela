@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Substituir "/" pelo URL absoluto do domínio final, ex.: https://dominio.ao/ -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/</loc>
+    <loc>https://kolela.netlify.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
