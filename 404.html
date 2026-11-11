@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada | Kolela</title>
+  <meta name="description" content="A página que procura não existe ou foi movida. Volte ao início do site da Kolela.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#07155E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%2307155E%22%2F%3E%3Cpath%20d%3D%22M22%2016a22%2022%200%201%200%2020%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD60A%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%2F%3E%3Cline%20x1%3D%2232%22%20y1%3D%228%22%20x2%3D%2232%22%20y2%3D%2230%22%20stroke%3D%22%234DE3F5%22%20stroke-width%3D%226%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+  <!-- Estilos inline para o 404 funcionar em qualquer host e em URLs aninhadas, sem depender de caminhos relativos. -->
+  <style>
+    :root {
+      --blue-primary: #1A4DB3;
+      --blue-dark: #07155E;
+      --bg: #F5F7FC;
+      --text: #14204A;
+      --muted: #5A6790;
+      --yellow: #FFD60A;
+      --font: "Montserrat", "Segoe UI", Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
+      line-height: 1.65;
+      background: var(--bg);
+    }
+
+    .page-error {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .wrap {
+      width: min(640px, calc(100% - 32px));
+      margin-inline: auto;
+      padding: 12vh 0 8vh;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      margin: 0 0 18px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow.dark {
+      background: rgba(26, 77, 179, 0.08);
+      border: 1px solid rgba(26, 77, 179, 0.12);
+      color: var(--blue-primary);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      color: var(--blue-dark);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+    }
+
+    .intro {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .error-actions {
+      margin: 28px 0 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 800;
+      text-decoration: none;
+      background: linear-gradient(90deg, #F7931E, var(--yellow));
+      color: var(--blue-dark);
+      box-shadow: 0 8px 22px rgba(247, 147, 30, 0.28);
+    }
+
+    .btn:hover {
+      box-shadow: 0 12px 28px rgba(247, 147, 30, 0.38);
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--blue-dark);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body class="page-error">
+  <main class="wrap">
+    <p class="eyebrow dark">Erro 404</p>
+    <h1>Esta página não existe.</h1>
+    <p class="intro">Volte ao início para conhecer os serviços da Kolela Comércio &amp; Prestação de Serviços, Lda.</p>
+    <p class="error-actions"><a class="btn" href="/">Ir para o início</a></p>
+  </main>
+  <script>
+    (function () {
+      var link = document.querySelector(".error-actions .btn");
+      var parts = location.pathname.split("/").filter(Boolean);
+      if (link && /\.github\.io$/i.test(location.hostname) && parts.length > 1) {
+        link.href = "/" + parts[0] + "/";
+      }
+    })();
+  </script>
+</body>
+</html>

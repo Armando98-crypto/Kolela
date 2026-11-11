@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Substituir pelo URL absoluto do domínio final, ex.: Sitemap: https://dominio.ao/sitemap.xml
+Sitemap: sitemap.xml
