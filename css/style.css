@@ -1867,41 +1867,58 @@ textarea[aria-invalid="true"] {
 }
 
 footer {
+  position: relative;
   background:
-    radial-gradient(circle at 88% 0%, rgba(77, 227, 245, 0.08), transparent 42%),
+    radial-gradient(circle at 88% 0%, rgba(77, 227, 245, 0.1), transparent 42%),
+    radial-gradient(circle at 8% 100%, rgba(247, 147, 30, 0.08), transparent 38%),
     var(--blue-night);
   color: #9fb0e6;
   font-size: 0.88rem;
-  padding: 54px 0 96px;
+  padding: 64px 0 100px;
 }
 
-.footer-grid {
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-primary), var(--cyan) 45%, var(--yellow));
+}
+
+.footer-main {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
-  gap: 28px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
 }
 
-.footer-brand p {
-  margin: 10px 0 0;
-  max-width: 30ch;
+.footer-company {
+  margin: 14px 0 0;
+  max-width: 28ch;
+  line-height: 1.6;
 }
 
-.footer-legal {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 6px 24px;
-  margin-top: 6px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.78rem;
-  color: #8496c8;
+.footer-slogan {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 214, 10, 0.28);
+  background: rgba(255, 214, 10, 0.08);
+  color: var(--yellow);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.footer-legal p {
-  margin: 0;
+.footer-title {
+  margin: 6px 0 14px;
+  color: var(--white);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .fl {
@@ -1924,26 +1941,100 @@ footer {
 
 .footer-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .footer-nav a {
-  text-decoration: none;
-  font-weight: 700;
-  min-height: 44px;
+  position: relative;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
+  padding: 0;
+  text-decoration: none;
+  color: #c6d2f5;
+  font-weight: 600;
+  transition: color 0.2s ease, padding-left 0.2s var(--ease);
+}
+
+.footer-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--yellow);
+  transform: translateY(-50%);
+  transition: width 0.2s var(--ease);
 }
 
 .footer-nav a:hover {
   color: var(--yellow);
+  padding-left: 14px;
 }
 
-.footer-slogan {
+.footer-nav a:hover::before {
+  width: 9px;
+}
+
+.footer-contact {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0;
-  font-weight: 800;
+  color: #c6d2f5;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: color 0.2s ease;
+}
+
+a.footer-contact-item:hover {
   color: var(--yellow);
+}
+
+.footer-contact-item svg {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cyan);
+}
+
+.footer-contact-item small {
+  display: block;
+  color: #8192c2;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.78rem;
+  color: #8496c8;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 .wa {
@@ -2302,7 +2393,7 @@ footer {
   .hero-grid,
   .product-grid,
   .contacto-grid,
-  .footer-grid {
+  .footer-main {
     grid-template-columns: 1fr;
   }
 
@@ -2369,9 +2460,6 @@ footer {
     min-width: 160px;
   }
 
-  .footer-slogan {
-    justify-self: start;
-  }
 }
 
 @media (max-width: 640px) {
