@@ -3,6 +3,7 @@
   doc.classList.add("js");
 
   var header = document.querySelector(".site-header");
+  var progress = document.querySelector(".scroll-progress span");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("menu");
   var form = document.getElementById("f");
@@ -15,6 +16,11 @@
   function onScroll() {
     if (header) header.classList.toggle("min", window.scrollY > 24);
     if (toTop) toTop.classList.toggle("on", window.scrollY > 600);
+    if (progress) {
+      var max = doc.scrollHeight - window.innerHeight;
+      var pct = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+      progress.style.width = pct + "%";
+    }
     var current = "";
     for (var s = 0; s < sections.length; s += 1) {
       var el = document.getElementById(sections[s]);
@@ -96,7 +102,7 @@
   }
 
   var targets = document.querySelectorAll(
-    ".service-card, .passos li, .product-copy, .product-stage, .trust-card, .contacto-grid > div, .cartao, .cta-box, .benefit, .essence-head, .values-head, .pillar, .value-card"
+    ".service-card, .passos li, .product-copy, .product-stage, .trust-card, .contacto-grid > div, .cartao, .cta-box, .benefit, .essence-head, .values-head, .pillar, .value-card, .section-head"
   );
   targets.forEach(function (el, i) {
     el.classList.add("rv");
