@@ -102,7 +102,7 @@
   }
 
   var targets = document.querySelectorAll(
-    ".service-card, .passos li, .product-copy, .product-stage, .trust-card, .contacto-grid > div, .cartao, .cta-box, .benefit, .essence-head, .values-head, .pillar, .value-card, .section-head"
+    ".service-card, .passos li, .product-copy, .product-stage, .trust-card, .contacto-grid > div, .cartao, .cta-box, .benefit, .essence-head, .values-head, .pillar, .value-card, .section-head, .footer-main > *, .footer-bottom"
   );
   targets.forEach(function (el, i) {
     el.classList.add("rv");

@@ -304,6 +304,8 @@ html.menu-open body::before {
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1566,7 +1568,7 @@ h3 {
 
 .sc-b {
   right: 8px;
-  top: 2%;
+  top: 4%;
 }
 
 .stage-note {
@@ -2250,6 +2252,111 @@ a.footer-contact-item:hover {
   background: linear-gradient(90deg, var(--orange), var(--yellow) 45%, var(--cyan));
   box-shadow: 0 0 12px rgba(255, 214, 10, 0.5);
   transition: width 0.12s linear;
+}
+
+/* Toques finais */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 22%, rgba(255, 255, 255, 0.42) 50%, transparent 78%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.btn:hover::after,
+.btn:focus-visible::after {
+  animation: brilho-btn 0.75s var(--ease);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  animation: foco-campo 0.45s ease-out;
+}
+
+.sc-a {
+  animation: chip-flutua 6s ease-in-out infinite;
+}
+
+.sc-b {
+  animation: chip-flutua 7s 0.6s ease-in-out infinite reverse;
+}
+
+.product-copy.on .check-list li {
+  animation: sobe 0.5s var(--ease) both;
+}
+
+.product-copy.on .check-list li:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.product-copy.on .check-list li:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.value-icon {
+  transition: transform 0.3s var(--ease);
+}
+
+.value-card:hover .value-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.footer-contact-item svg {
+  transition: transform 0.3s var(--ease), background 0.25s ease, border-color 0.25s ease;
+}
+
+.footer-contact-item:hover svg {
+  transform: translateY(-2px) scale(1.08);
+  border-color: rgba(77, 227, 245, 0.35);
+  background: rgba(77, 227, 245, 0.14);
+}
+
+.to-top svg {
+  transition: transform 0.25s var(--ease);
+}
+
+.to-top:hover svg {
+  animation: seta 0.6s ease-in-out;
+}
+
+@keyframes brilho-btn {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes foco-campo {
+  from {
+    box-shadow: 0 0 0 0 rgba(26, 77, 179, 0.3);
+  }
+  to {
+    box-shadow: 0 0 0 4px rgba(26, 77, 179, 0.12);
+  }
+}
+
+@keyframes chip-flutua {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes seta {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  70% {
+    transform: translateY(1px);
+  }
 }
 
 .section-head h2::after {
